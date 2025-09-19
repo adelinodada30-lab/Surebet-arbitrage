@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SureBet - Sistema de Arbitragem</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">SureBet <i class="fas fa-coins"></i></div>
+            <p>Sistema Profissional de Arbitragem Esportiva</p>
+        </header>
+
+        <div class="api-config">
+            <h3><i class="fas fa-key"></i> Configuração da API</h3>
+            <div class="api-form">
+                <input type="text" id="api-key" placeholder="Cole sua chave API aqui...">
+                <button onclick="testApiKey()" class="btn btn-primary">Testar Conexão</button>
+            </div>
+            <p>💡 Obtenha uma chave API gratuita em: <a href="https://the-odds-api.com/" target="_blank">the-odds-api.com</a></p>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label for="sport"><i class="fas fa-running"></i> Esporte</label>
+                <select id="sport">
+                    <option value="soccer">Futebol</option>
+                    <option value="basketball">Basquete</option>
+                    <option value="tennis">Tênis</option>
+                    <option value="icehockey">Hockey</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="stake"><i class="fas fa-money-bill-wave"></i> Valor (R$)</label>
+                <input type="number" id="stake" value="100" min="10" max="10000">
+            </div>
+            
+            <div class="filter-group">
+                <label for="profit"><i class="fas fa-chart-line"></i> Lucro Mínimo (%)</label>
+                <input type="range" id="profit" min="1" max="10" value="2">
+                <span id="profit-value">2%</span>
+            </div>
+            
+            <div class="filter-group">
+                <label style="opacity: 0;">Buscar</label>
+                <button onclick="loadEvents()" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Buscar Oportunidades
+                </button>
+            </div>
+        </div>
+
+        <div class="events-container" id="events-container">
+            <div class="loading">
+                <i class="fas fa-search-dollar fa-3x"></i>
+                <p>Configure sua chave API e clique em "Buscar Oportunidades"</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
